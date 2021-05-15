@@ -112,8 +112,51 @@ function createHTML() {
 }
 
 
-function addHTMl() {
-
+function addHTMl(employee) {
+    return new Promise(function(res, rej) {
+        const name = employee.getName();
+        const role = employee.getRole();
+        const id = employee.getId();
+        const email = employee.getEmail();
+        let data = "";
+        if (role === "Manager") {
+            const officeNumber = employee.getOffice();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Manager</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">GitHub: ${officeNumber}</li>
+            </ul>
+            </div>
+        </div>`;
+        } else if (role === "Engineer") {
+            const gitHub = employee.getGithub();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Engineer</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">GitHub: ${gitHub}</li>
+            </ul>
+            </div>
+        </div>`;
+        } else {
+            const schoolName = employee.getSchool();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Intern</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">GitHub: ${schoolName}</li>
+            </ul>
+            </div>
+        </div>`;
+        }
+    })
 };
 
 function endHTML() {
