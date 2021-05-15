@@ -3,6 +3,8 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const { rejects } = require("assert/strict");
+const { resolve } = require("path");
 
 const employees = [];
 
@@ -12,7 +14,7 @@ function init() {
 };
 
 // use inquirer
-function addEmployee() {
+function newEmployee() {
     inquirer.prompt([
         {
             type:"input",
@@ -156,11 +158,29 @@ function addHTMl(employee) {
             </div>
         </div>`;
         }
-    })
+        console.log("Adding new Employee");
+        fs.appendFile("./output/employees.html", data, function(err) {
+            if (err) {
+                return reject(err);
+            };
+            return resolve();
+        });
+    });
 };
 
 function endHTML() {
+    const html = `</div>
+        </div>
+        
+    </body>
+    </html>`;
 
+        fs.appendFile("./output/employees.html", html, function (err) {
+            if (err) {
+                console.log(err);
+            };
+        });
+        console.log("end");
 }
 
 init();
