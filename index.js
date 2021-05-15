@@ -3,14 +3,12 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const { rejects } = require("assert/strict");
-const { resolve } = require("path");
 
 const employees = [];
 
 function init() {
     createHTML();
-    addEmployee();
+    newEmployee();
 };
 
 // use inquirer
@@ -78,7 +76,7 @@ function newEmployee() {
                 if (addEmployees === "Yes") {
                     addEmployee();
                 } else {
-                    finishHtml();
+                    endHtml();
                 }
             });
         });
@@ -105,7 +103,7 @@ function createHTML() {
             <div class="row">
             
     `;
-    fs.writeFile("./output/employees.html",html, function(err) {
+    fs.writeFile("./dist/team.html",html, function(err) {
         if(err) {
             console.log(err);
         
@@ -115,7 +113,7 @@ function createHTML() {
 
 
 function addHTMl(employee) {
-    return new Promise(function(res, rej) {
+    return new Promise(function(resolve, reject) {
         const name = employee.getName();
         const role = employee.getRole();
         const id = employee.getId();
@@ -159,7 +157,7 @@ function addHTMl(employee) {
         </div>`;
         }
         console.log("Adding new Employee");
-        fs.appendFile("./output/employees.html", data, function(err) {
+        fs.appendFile("./dist/team.html", data, function(err) {
             if (err) {
                 return reject(err);
             };
@@ -168,14 +166,14 @@ function addHTMl(employee) {
     });
 };
 
-function endHTML() {
+function endHtml() {
     const html = `</div>
         </div>
         
     </body>
     </html>`;
 
-        fs.appendFile("./output/employees.html", html, function (err) {
+        fs.appendFile("./dist/team.html", html, function (err) {
             if (err) {
                 console.log(err);
             };
