@@ -13,6 +13,7 @@ function init() {
 
 // use inquirer
 function newEmployee() {
+
     inquirer.prompt([
         {
             type:"input",
@@ -59,24 +60,25 @@ function newEmployee() {
                 "Yes",
                 "No"
             ],
-            name: "addEmployees"
+            name: "newEmployees"
         }])
-        .then(function({roleInfo, addEmployees}) {
-            let newEmployee;
+        .then(function({roleInfo, moreEmployees}) {
+            let newMem;
             if (role === "Manager") {
-                newEmployee = new Manager(name, id, email, roleInfo);
+                newMem = new Manager(name, id, email, roleInfo);
             } else if (role === "Engineer") {
-                newEmployee = new Engineer(name, id, email, roleInfo);
+                newMem = new Engineer(name, id, email, roleInfo);
             } else {
-                newEmployee = new Intern(name, id, email, roleInfo);
+                newMem = new Intern(name, id, email, roleInfo);
             };
-            employees.push(newEmployee);
-            addHTMl(newEmployee)
+            employees.push(newMem);
+            addHTMl(newMem)
             .then(function() {
-                if (addEmployees === "Yes") {
-                    addEmployee();
+                if (moreEmployees === "yes") {
+                    newEmployee();
                 } else {
                     endHtml();
+                return
                 }
             });
         });
