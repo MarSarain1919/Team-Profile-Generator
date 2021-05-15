@@ -15,14 +15,14 @@ describe("Employee", () => {
 
     it("can set an id", () => {
         const idHolder = 0;
-        const newGuy = new Employee(idHolder);
-        expect(newGuy.idHolder).toBe("Gonzo", idHolder);
+        const newGuy = new Employee("Gonzo", idHolder);
+        expect(newGuy.id).toBe(idHolder);
     });
 
     it("can set an email address", () => {
         const emailHolder = "myname@email.com";
-        const newGuy = new Employee(emailHolder);
-        expect(newGuy.emailHolder).toBe("Gonzo", 0, emailHolder);
+        const newGuy = new Employee("Gonzo", 0, emailHolder);
+        expect(newGuy.email).toBe(emailHolder);
     });
 
     describe("getName", () => {
@@ -45,14 +45,14 @@ describe("Employee", () => {
         it("can get the employee email with getEmail()", () => {
             const emailHolder = 'myname@email.com';
             const newGuy = new Employee("Gonzo", 0, emailHolder);
-            expect(newGuy.getId()).toBe(emailHolder);
+            expect(newGuy.getEmail()).toBe(emailHolder);
          });
     });
     describe("getRole", () => {
         it("can get the employee role with getRole()", () => {
-            const roleHolder = '0';
+            const roleHolder = "Employee";
             const newGuy = new Employee("Gonzo", 0, "myname@email.com", roleHolder);
-            expect(newGuy.getId()).toBe(roleHolder);
+            expect(newGuy.getRole()).toBe(roleHolder);
         });
 
     });
