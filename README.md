@@ -25,6 +25,11 @@ npm i jest
 
 ## Usage
 Use for any team looking to build a fast and easy profile
+
+## License
+MIT License
+
+Copyright (c) 2021 M. Katja Sarain
     
 ## Contributing
 Please email me for any suggestions.
