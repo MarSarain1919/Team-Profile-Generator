@@ -60,7 +60,7 @@ function newEmployee() {
                 "Yes",
                 "No"
             ],
-            name: "newEmployees"
+            name: "moreEmployees"
         }])
         .then(function({roleInfo, moreEmployees}) {
             let newMem;
