@@ -6,7 +6,6 @@ MIT[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https:
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
-- [Contributing](#contributing)
 - [Tests](#tests)
 
 
@@ -31,9 +30,6 @@ MIT License
 
 Copyright (c) 2021 M. Katja Sarain
     
-## Contributing
-Please email me for any suggestions.
-
 ## Tests
 To run tests, run the following command:
 `
